@@ -1,0 +1,14 @@
+/home/fkon/chatroom/protobuf/bin/Debug/net8.0/protobuf
+/home/fkon/chatroom/protobuf/bin/Debug/net8.0/protobuf.deps.json
+/home/fkon/chatroom/protobuf/bin/Debug/net8.0/protobuf.runtimeconfig.json
+/home/fkon/chatroom/protobuf/bin/Debug/net8.0/protobuf.dll
+/home/fkon/chatroom/protobuf/bin/Debug/net8.0/protobuf.pdb
+/home/fkon/chatroom/protobuf/obj/Debug/net8.0/protobuf.GeneratedMSBuildEditorConfig.editorconfig
+/home/fkon/chatroom/protobuf/obj/Debug/net8.0/protobuf.AssemblyInfoInputs.cache
+/home/fkon/chatroom/protobuf/obj/Debug/net8.0/protobuf.AssemblyInfo.cs
+/home/fkon/chatroom/protobuf/obj/Debug/net8.0/protobuf.csproj.CoreCompileInputs.cache
+/home/fkon/chatroom/protobuf/obj/Debug/net8.0/protobuf.dll
+/home/fkon/chatroom/protobuf/obj/Debug/net8.0/refint/protobuf.dll
+/home/fkon/chatroom/protobuf/obj/Debug/net8.0/protobuf.pdb
+/home/fkon/chatroom/protobuf/obj/Debug/net8.0/protobuf.genruntimeconfig.cache
+/home/fkon/chatroom/protobuf/obj/Debug/net8.0/ref/protobuf.dll
