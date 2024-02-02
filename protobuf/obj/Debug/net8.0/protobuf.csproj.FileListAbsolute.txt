@@ -12,3 +12,7 @@
 /home/fkon/chatroom/protobuf/obj/Debug/net8.0/protobuf.pdb
 /home/fkon/chatroom/protobuf/obj/Debug/net8.0/protobuf.genruntimeconfig.cache
 /home/fkon/chatroom/protobuf/obj/Debug/net8.0/ref/protobuf.dll
+/home/fkon/chatroom/protobuf/bin/Debug/net8.0/Google.Protobuf.dll
+/home/fkon/chatroom/protobuf/obj/Debug/net8.0/protobuf.csproj.AssemblyReference.cache
+/home/fkon/chatroom/protobuf/obj/Debug/net8.0/protobuf.sourcelink.json
+/home/fkon/chatroom/protobuf/obj/Debug/net8.0/protobuf.csproj.CopyComplete
