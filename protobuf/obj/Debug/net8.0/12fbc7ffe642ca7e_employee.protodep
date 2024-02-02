@@ -1,2 +1,3 @@
-obj/Debug/net8.0/protos/Employee.cs: /home/fkon/.nuget/packages/grpc.tools/2.60.0/build/native/include/google/protobuf/timestamp.proto\
+obj/Debug/net8.0/protos/Employee.cs \
+obj/Debug/net8.0/protos/EmployeeGrpc.cs: /home/fkon/.nuget/packages/grpc.tools/2.60.0/build/native/include/google/protobuf/timestamp.proto\
  protos/employee.proto
