@@ -25,21 +25,24 @@ namespace Grpc.Protobuf.Test {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVwcm90b3MvZW1wbG95ZWUucHJvdG8SC2hyLmVudGl0aWVzGh9nb29nbGUv",
-            "cHJvdG9idWYvdGltZXN0YW1wLnByb3RvIswCCghFbXBsb3llZRIKCgJpZBgB",
+            "cHJvdG9idWYvdGltZXN0YW1wLnByb3RvItYDCghFbXBsb3llZRIKCgJpZBgB",
             "IAEoBRISCgpmaXJzdF9uYW1lGAIgASgJEhEKCWxhc3RfbmFtZRgDIAEoCRIS",
-            "Cgppc19yZXRpcmVkGAQgASgIEi4KCmJpcnRoX2RhdGUYBSABKAsyGi5nb29n",
-            "bGUucHJvdG9idWYuVGltZXN0YW1wEi0KD2N1cnJlbnRfYWRkcmVzcxgGIAEo",
-            "CzIULmhyLmVudGl0aWVzLkFkZHJlc3MSGgoScHJldmlvdXNfZW1wbG95ZXJz",
-            "GAcgAygJEjsKDm1hcml0YWxfc3RhdHVzGAggASgOMiMuaHIuZW50aXRpZXMu",
-            "RW1wbG95ZWUuTWFyaXRhbFN0YXR1cyJBCg1NYXJpdGFsU3RhdHVzEgoKBlNJ",
-            "TkdMRRAAEgsKB01BUlJJRUQQARIMCghESVZPUkNFRBACEgkKBU9USEVSEAMi",
-            "VAoHQWRkcmVzcxITCgtzdHJlZXRfbmFtZRgBIAEoCRIUCgxob3VzZV9udW1i",
-            "ZXIYAiABKAUSDAoEY2l0eRgDIAEoCRIQCgh6aXBfY29kZRgEIAEoCUIVqgIS",
-            "R3JwYy5Qcm90b2J1Zi5UZXN0YgZwcm90bzM="));
+            "Cgppc19yZXRpcmVkGAQgASgIEjAKCmJpcnRoX2RhdGUYBSABKAsyGi5nb29n",
+            "bGUucHJvdG9idWYuVGltZXN0YW1wSAASDQoDYWdlGAkgASgFSAASLQoPY3Vy",
+            "cmVudF9hZGRyZXNzGAYgASgLMhQuaHIuZW50aXRpZXMuQWRkcmVzcxIaChJw",
+            "cmV2aW91c19lbXBsb3llcnMYByADKAkSOwoObWFyaXRhbF9zdGF0dXMYCCAB",
+            "KA4yIy5oci5lbnRpdGllcy5FbXBsb3llZS5NYXJpdGFsU3RhdHVzEjcKCXJl",
+            "bGF0aXZlcxgKIAMoCzIkLmhyLmVudGl0aWVzLkVtcGxveWVlLlJlbGF0aXZl",
+            "c0VudHJ5GjAKDlJlbGF0aXZlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1",
+            "ZRgCIAEoCToCOAEiQQoNTWFyaXRhbFN0YXR1cxIKCgZTSU5HTEUQABILCgdN",
+            "QVJSSUVEEAESDAoIRElWT1JDRUQQAhIJCgVPVEhFUhADQgwKCmJpcnRoX2Rh",
+            "dGEiVAoHQWRkcmVzcxITCgtzdHJlZXRfbmFtZRgBIAEoCRIUCgxob3VzZV9u",
+            "dW1iZXIYAiABKAUSDAoEY2l0eRgDIAEoCRIQCgh6aXBfY29kZRgEIAEoCUIV",
+            "qgISR3JwYy5Qcm90b2J1Zi5UZXN0YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Grpc.Protobuf.Test.Employee), global::Grpc.Protobuf.Test.Employee.Parser, new[]{ "Id", "FirstName", "LastName", "IsRetired", "BirthDate", "CurrentAddress", "PreviousEmployers", "MaritalStatus" }, null, new[]{ typeof(global::Grpc.Protobuf.Test.Employee.Types.MaritalStatus) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Grpc.Protobuf.Test.Employee), global::Grpc.Protobuf.Test.Employee.Parser, new[]{ "Id", "FirstName", "LastName", "IsRetired", "BirthDate", "Age", "CurrentAddress", "PreviousEmployers", "MaritalStatus", "Relatives" }, new[]{ "BirthData" }, new[]{ typeof(global::Grpc.Protobuf.Test.Employee.Types.MaritalStatus) }, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Grpc.Protobuf.Test.Address), global::Grpc.Protobuf.Test.Address.Parser, new[]{ "StreetName", "HouseNumber", "City", "ZipCode" }, null, null, null, null)
           }));
     }
@@ -90,10 +93,19 @@ namespace Grpc.Protobuf.Test {
       firstName_ = other.firstName_;
       lastName_ = other.lastName_;
       isRetired_ = other.isRetired_;
-      birthDate_ = other.birthDate_ != null ? other.birthDate_.Clone() : null;
       currentAddress_ = other.currentAddress_ != null ? other.currentAddress_.Clone() : null;
       previousEmployers_ = other.previousEmployers_.Clone();
       maritalStatus_ = other.maritalStatus_;
+      relatives_ = other.relatives_.Clone();
+      switch (other.BirthDataCase) {
+        case BirthDataOneofCase.BirthDate:
+          BirthDate = other.BirthDate.Clone();
+          break;
+        case BirthDataOneofCase.Age:
+          Age = other.Age;
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -153,13 +165,39 @@ namespace Grpc.Protobuf.Test {
 
     /// <summary>Field number for the "birth_date" field.</summary>
     public const int BirthDateFieldNumber = 5;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp birthDate_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Timestamp BirthDate {
-      get { return birthDate_; }
+      get { return birthDataCase_ == BirthDataOneofCase.BirthDate ? (global::Google.Protobuf.WellKnownTypes.Timestamp) birthData_ : null; }
       set {
-        birthDate_ = value;
+        birthData_ = value;
+        birthDataCase_ = value == null ? BirthDataOneofCase.None : BirthDataOneofCase.BirthDate;
+      }
+    }
+
+    /// <summary>Field number for the "age" field.</summary>
+    public const int AgeFieldNumber = 9;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Age {
+      get { return HasAge ? (int) birthData_ : 0; }
+      set {
+        birthData_ = value;
+        birthDataCase_ = BirthDataOneofCase.Age;
+      }
+    }
+    /// <summary>Gets whether the "age" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAge {
+      get { return birthDataCase_ == BirthDataOneofCase.Age; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "age" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAge() {
+      if (HasAge) {
+        ClearBirthData();
       }
     }
 
@@ -201,6 +239,38 @@ namespace Grpc.Protobuf.Test {
       }
     }
 
+    /// <summary>Field number for the "relatives" field.</summary>
+    public const int RelativesFieldNumber = 10;
+    private static readonly pbc::MapField<string, string>.Codec _map_relatives_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForString(18, ""), 82);
+    private readonly pbc::MapField<string, string> relatives_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::MapField<string, string> Relatives {
+      get { return relatives_; }
+    }
+
+    private object birthData_;
+    /// <summary>Enum of possible cases for the "birth_data" oneof.</summary>
+    public enum BirthDataOneofCase {
+      None = 0,
+      BirthDate = 5,
+      Age = 9,
+    }
+    private BirthDataOneofCase birthDataCase_ = BirthDataOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public BirthDataOneofCase BirthDataCase {
+      get { return birthDataCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearBirthData() {
+      birthDataCase_ = BirthDataOneofCase.None;
+      birthData_ = null;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -221,9 +291,12 @@ namespace Grpc.Protobuf.Test {
       if (LastName != other.LastName) return false;
       if (IsRetired != other.IsRetired) return false;
       if (!object.Equals(BirthDate, other.BirthDate)) return false;
+      if (Age != other.Age) return false;
       if (!object.Equals(CurrentAddress, other.CurrentAddress)) return false;
       if(!previousEmployers_.Equals(other.previousEmployers_)) return false;
       if (MaritalStatus != other.MaritalStatus) return false;
+      if (!Relatives.Equals(other.Relatives)) return false;
+      if (BirthDataCase != other.BirthDataCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -235,10 +308,13 @@ namespace Grpc.Protobuf.Test {
       if (FirstName.Length != 0) hash ^= FirstName.GetHashCode();
       if (LastName.Length != 0) hash ^= LastName.GetHashCode();
       if (IsRetired != false) hash ^= IsRetired.GetHashCode();
-      if (birthDate_ != null) hash ^= BirthDate.GetHashCode();
+      if (birthDataCase_ == BirthDataOneofCase.BirthDate) hash ^= BirthDate.GetHashCode();
+      if (HasAge) hash ^= Age.GetHashCode();
       if (currentAddress_ != null) hash ^= CurrentAddress.GetHashCode();
       hash ^= previousEmployers_.GetHashCode();
       if (MaritalStatus != global::Grpc.Protobuf.Test.Employee.Types.MaritalStatus.Single) hash ^= MaritalStatus.GetHashCode();
+      hash ^= Relatives.GetHashCode();
+      hash ^= (int) birthDataCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -273,7 +349,7 @@ namespace Grpc.Protobuf.Test {
         output.WriteRawTag(32);
         output.WriteBool(IsRetired);
       }
-      if (birthDate_ != null) {
+      if (birthDataCase_ == BirthDataOneofCase.BirthDate) {
         output.WriteRawTag(42);
         output.WriteMessage(BirthDate);
       }
@@ -286,6 +362,11 @@ namespace Grpc.Protobuf.Test {
         output.WriteRawTag(64);
         output.WriteEnum((int) MaritalStatus);
       }
+      if (HasAge) {
+        output.WriteRawTag(72);
+        output.WriteInt32(Age);
+      }
+      relatives_.WriteTo(output, _map_relatives_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -312,7 +393,7 @@ namespace Grpc.Protobuf.Test {
         output.WriteRawTag(32);
         output.WriteBool(IsRetired);
       }
-      if (birthDate_ != null) {
+      if (birthDataCase_ == BirthDataOneofCase.BirthDate) {
         output.WriteRawTag(42);
         output.WriteMessage(BirthDate);
       }
@@ -325,6 +406,11 @@ namespace Grpc.Protobuf.Test {
         output.WriteRawTag(64);
         output.WriteEnum((int) MaritalStatus);
       }
+      if (HasAge) {
+        output.WriteRawTag(72);
+        output.WriteInt32(Age);
+      }
+      relatives_.WriteTo(ref output, _map_relatives_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -347,8 +433,11 @@ namespace Grpc.Protobuf.Test {
       if (IsRetired != false) {
         size += 1 + 1;
       }
-      if (birthDate_ != null) {
+      if (birthDataCase_ == BirthDataOneofCase.BirthDate) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(BirthDate);
+      }
+      if (HasAge) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Age);
       }
       if (currentAddress_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(CurrentAddress);
@@ -357,6 +446,7 @@ namespace Grpc.Protobuf.Test {
       if (MaritalStatus != global::Grpc.Protobuf.Test.Employee.Types.MaritalStatus.Single) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) MaritalStatus);
       }
+      size += relatives_.CalculateSize(_map_relatives_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -381,12 +471,6 @@ namespace Grpc.Protobuf.Test {
       if (other.IsRetired != false) {
         IsRetired = other.IsRetired;
       }
-      if (other.birthDate_ != null) {
-        if (birthDate_ == null) {
-          BirthDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        BirthDate.MergeFrom(other.BirthDate);
-      }
       if (other.currentAddress_ != null) {
         if (currentAddress_ == null) {
           CurrentAddress = new global::Grpc.Protobuf.Test.Address();
@@ -397,6 +481,19 @@ namespace Grpc.Protobuf.Test {
       if (other.MaritalStatus != global::Grpc.Protobuf.Test.Employee.Types.MaritalStatus.Single) {
         MaritalStatus = other.MaritalStatus;
       }
+      relatives_.MergeFrom(other.relatives_);
+      switch (other.BirthDataCase) {
+        case BirthDataOneofCase.BirthDate:
+          if (BirthDate == null) {
+            BirthDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+          }
+          BirthDate.MergeFrom(other.BirthDate);
+          break;
+        case BirthDataOneofCase.Age:
+          Age = other.Age;
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -429,10 +526,12 @@ namespace Grpc.Protobuf.Test {
             break;
           }
           case 42: {
-            if (birthDate_ == null) {
-              BirthDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            global::Google.Protobuf.WellKnownTypes.Timestamp subBuilder = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            if (birthDataCase_ == BirthDataOneofCase.BirthDate) {
+              subBuilder.MergeFrom(BirthDate);
             }
-            input.ReadMessage(BirthDate);
+            input.ReadMessage(subBuilder);
+            BirthDate = subBuilder;
             break;
           }
           case 50: {
@@ -448,6 +547,14 @@ namespace Grpc.Protobuf.Test {
           }
           case 64: {
             MaritalStatus = (global::Grpc.Protobuf.Test.Employee.Types.MaritalStatus) input.ReadEnum();
+            break;
+          }
+          case 72: {
+            Age = input.ReadInt32();
+            break;
+          }
+          case 82: {
+            relatives_.AddEntriesFrom(input, _map_relatives_codec);
             break;
           }
         }
@@ -482,10 +589,12 @@ namespace Grpc.Protobuf.Test {
             break;
           }
           case 42: {
-            if (birthDate_ == null) {
-              BirthDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            global::Google.Protobuf.WellKnownTypes.Timestamp subBuilder = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            if (birthDataCase_ == BirthDataOneofCase.BirthDate) {
+              subBuilder.MergeFrom(BirthDate);
             }
-            input.ReadMessage(BirthDate);
+            input.ReadMessage(subBuilder);
+            BirthDate = subBuilder;
             break;
           }
           case 50: {
@@ -501,6 +610,14 @@ namespace Grpc.Protobuf.Test {
           }
           case 64: {
             MaritalStatus = (global::Grpc.Protobuf.Test.Employee.Types.MaritalStatus) input.ReadEnum();
+            break;
+          }
+          case 72: {
+            Age = input.ReadInt32();
+            break;
+          }
+          case 82: {
+            relatives_.AddEntriesFrom(ref input, _map_relatives_codec);
             break;
           }
         }
