@@ -1,5 +1,5 @@
 using Grpc.Core;
-using groom.gRPC.Messages;
+using gRoom.gRPC.Messages;
 
 namespace gRoom.gRPC.Services;
 
