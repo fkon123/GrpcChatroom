@@ -24,7 +24,7 @@ message NewsStreamStatus {
   bool success = 1;
 }
 
-message ResivedMessage {
+message ReceivedMessage {
   google.protobuf.Timestamp msg_time=1;
   string content=2;
   string user=3;
@@ -33,5 +33,5 @@ message ResivedMessage {
 service Groom {
     rpc RegisterToRoom(RoomRegistrationRequest) returns (RoomRegistrationResponse);
     rpc SendNewsFlash(stream NewsFlash) returns (NewsStreamStatus);
-    rpc StartMonitoring(google.protobuf.Empty) returns (stream ResivedMessage);
+    rpc StartMonitoring(google.protobuf.Empty) returns (stream ReceivedMessage);
 }
