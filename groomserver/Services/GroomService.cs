@@ -13,16 +13,20 @@ public class GroomService : Groom.GroomBase
         _logger = logger;
     }
 
-    public override Task<RoomRegistrationResponse> RegisterToRoom(RoomRegistrationRequest request, ServerCallContext context)
+    public override async Task<RoomRegistrationResponse> RegisterToRoom(RoomRegistrationRequest request, ServerCallContext context)
     {
-        _logger.LogInformation("Service called...");
+        // _logger.LogInformation("Service called...");
 
 
-        var rnd = new Random();
-        var roomNum = rnd.Next(1, 100);
-        _logger.LogInformation($"Room no. {roomNum}");
-        var resp = new RoomRegistrationResponse { RoomId = roomNum };
-        return Task.FromResult(resp);
+        // var rnd = new Random();
+        // var roomNum = rnd.Next(1, 100);
+        // _logger.LogInformation($"Room no. {roomNum}");
+        // var resp = new RoomRegistrationResponse { RoomId = roomNum };
+        // return Task.FromResult(resp);
+
+        UsersQueues.CreateUserQueue(request.RoomName, request.UserName);
+        var resp = new RoomRegistrationResponse() { Joined = true };
+        return await Task.FromResult(resp);
     }
 
     public override async Task<NewsStreamStatus> SendNewsFlash(IAsyncStreamReader<NewsFlash> newsStream, ServerCallContext context)
