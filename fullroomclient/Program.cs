@@ -2,7 +2,7 @@
 using gRoom.gRPC.Messages;
 using Google.Protobuf.WellKnownTypes;
 
-using var channel = GrpcChannel.ForAddress("http://localhost:5054");
+using var channel = GrpcChannel.ForAddress("http://localhost:5087");
 var client = new Groom.GroomClient(channel);
 
 Console.WriteLine("Welcome the the gRoom chat!");
@@ -46,6 +46,7 @@ Console.Read();
 Console.Clear();
 
 // MAKE A CALL TO THE StartChat METHOD
+var call = client.StartChat();
 
 var cts = new CancellationTokenSource();
 
@@ -58,7 +59,14 @@ var task = Task.Run(async () =>
     while (true)
     {
         // TYPE HERE THE CODE FOR RECEIVING MESSAGES FROM THE SERVER
-        
+        if (await call.ResponseStream.MoveNext(cts.Token))
+        {
+            var msg = call.ResponseStream.Current;
+            var left = Console.CursorLeft - promptText.Length;
+            PrintMessage(msg);
+        }
+        await Task.Delay(500);
+
     }
 });
 
@@ -69,7 +77,13 @@ while (true)
     RestoreInputCursor();
 
     // TYPE HERE THE CODE FOR SENDING MESSAGES TO THE SERVER
-    
+    var reqMsg = new ChatMessage();
+    reqMsg.Content = input;
+    reqMsg.MsgTime = Timestamp.FromDateTime(DateTime.UtcNow);
+    reqMsg.Room = room;
+    reqMsg.User = username;
+    call.RequestStream.WriteAsync(reqMsg);
+
 }
 
 // Utilities methods for positioning the cursor
@@ -77,7 +91,7 @@ void PrintMessage(ChatMessage msg)
 {
     var left = Console.CursorLeft - promptText.Length;
     Console.SetCursorPosition(0, row++);
-    Console.Write($"{msg.User}: {msg.Contents}");
+    Console.Write($"{msg.User}: {msg.Content}");
     Console.SetCursorPosition(promptText.Length + left, 0);
 }
 
