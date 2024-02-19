@@ -50,6 +50,9 @@ public class GroomService : Groom.GroomBase
             {
                 await streamWriter.WriteAsync(MessagesQueue.GetNextMessage());
             }
+            if (UsersQueues.GetAdminQueueMessageCount()>0) {
+                await streamWriter.WriteAsync(UsersQueues.GetNextAdminMessage());
+            }
             await Task.Delay(1000);
         }
 
@@ -69,7 +72,8 @@ public class GroomService : Groom.GroomBase
         Console.WriteLine($"User {userName} connected to room {incomingStream.Current.Room}");
 
         // TEST TEST TEST TEST - TO USE ONLY WHEN TESTING WITH BLOOMRPC
-        UsersQueues.CreateUserQueue(room, userName);
+        //We dont need this line because user logins alone with fullroomclient
+        //UsersQueues.CreateUserQueue(room, userName);
         // END TEST END TEST END TEST
 
         // Get messages from the user
