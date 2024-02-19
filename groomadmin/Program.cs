@@ -12,7 +12,7 @@ Console.WriteLine("Listening...");
 using var call = client.StartMonitoring(new Empty());
 var cts = new CancellationTokenSource();
 
-while (await call.ResponseStream.MoveNeResponseStreamxt(cts.Token)) {
+while (await call.ResponseStream.MoveNext(cts.Token)) {
     var msg = call.ResponseStream.Current;
     Console.WriteLine($"New message: {msg.Content}, user: {msg.User}, at: {msg.MsgTime}");
 }
