@@ -16,7 +16,7 @@ Console.WriteLine($"Joining room {room}...");
 
 try
 {
-    var joinResponse = client.RegisterToRoom(new RoomRegistrationRequest() { RoomName = room, UserName = username });
+    var joinResponse = client.RegisterToRoom(new RoomRegistrationRequest() { RoomName = room, UserName = username }, deadline: DateTime.UtcNow.AddSeconds(5));
     if (joinResponse.Joined)
     {
         Console.WriteLine("Joined successfully!");
@@ -31,14 +31,16 @@ try
         return;
     }
 }
-catch (Exception ex)
+catch (Grpc.Core.RpcException ex)
 {
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine($"Error joining room {room}. Error: {ex.Message}");
+    if (ex.StatusCode == Grpc.Core.StatusCode.DeadlineExceeded)
+        Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine($"Timeout exceeded {room}");
     Console.ForegroundColor = ConsoleColor.Gray;
-    Console.WriteLine("Press any key to close the window.");
+    Console.WriteLine("Press any key");
     Console.Read();
     return;
+
 }
 
 Console.WriteLine($"Press any key to enter the {room} room.");
@@ -95,7 +97,8 @@ void PrintMessage(ChatMessage msg)
     Console.SetCursorPosition(promptText.Length + left, 0);
 }
 
-void RestoreInputCursor()  {
+void RestoreInputCursor()
+{
     Console.SetCursorPosition(promptText.Length - 1, 0);
     Console.Write("                                    ");
     Console.SetCursorPosition(promptText.Length - 1, 0);
