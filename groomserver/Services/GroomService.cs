@@ -15,7 +15,7 @@ public class GroomService : Groom.GroomBase
 
     public override async Task<RoomRegistrationResponse> RegisterToRoom(RoomRegistrationRequest request, ServerCallContext context)
     {
-        await Task.Delay(10000);
+        //await Task.Delay(10000);
 
         // _logger.LogInformation("Service called...");
 
