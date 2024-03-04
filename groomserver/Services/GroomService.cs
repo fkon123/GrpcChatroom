@@ -94,6 +94,10 @@ public class GroomService : Groom.GroomBase
         {
             while (true)
             {
+                if (context.CancellationToken.IsCancellationRequested) {
+                    return;
+                }
+
                 var userMsg = UsersQueues.GetMessageForUser(userName);
                 if (userMsg != null)
                 {
